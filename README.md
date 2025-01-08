@@ -1,6 +1,7 @@
 # **Programming Python Advanced** ⏫ 🖥️ 👩‍🎓
 
 Repository containing my work during the advanced course in Python from SoftUni
+
 🔗 [Link to Python Advanced course](https://softuni.bg/trainings/4839/python-advanced-january-2025)
 
 ## **Table of Contents** 📑
