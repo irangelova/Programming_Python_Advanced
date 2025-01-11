@@ -1,24 +1,25 @@
-expression = input()
+from collections import deque
 
-opening_parenthesis = "([{"
-closing_parenthesis = ")]}"
-parenthesis = []
+expression = input()
+parenthesis = {"(": ")", "[": "]", "{": "}"}
+
+opening_parenthesis = []
 is_balanced = True
 
 for character in expression:
-    if character in opening_parenthesis:
-        parenthesis.append(character)
-    elif character in closing_parenthesis:
-        if not parenthesis:
+    if character in parenthesis.keys():
+        opening_parenthesis.append(character)
+    else:
+        if not opening_parenthesis:
             is_balanced = False
             break
-        last_parenthesis = parenthesis.pop()
-        if opening_parenthesis.index(last_parenthesis) != closing_parenthesis.index(character):
+        last_opening_symbol = opening_parenthesis.pop()
+        if parenthesis[last_opening_symbol] != character:
             is_balanced = False
             break
-else:
-    if parenthesis:
-        is_balanced = False
+
+if opening_parenthesis and is_balanced:
+    is_balanced = False
 
 if is_balanced:
     print("YES")
