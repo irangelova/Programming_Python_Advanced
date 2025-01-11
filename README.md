@@ -6,7 +6,7 @@ Repository containing my work during the advanced course in Python from SoftUni
 
 ## **Table of Contents** 📑
 
-- [] Lists as Stacks and Queues
+- [x] Lists as Stacks and Queues
 - [] Tuples and Sets
 - [] Multidimensional Lists
 - [] Functions Advanced
