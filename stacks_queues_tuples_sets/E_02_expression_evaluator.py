@@ -1,25 +1,22 @@
-from math import floor
 from collections import deque
 
-expression = input()
+expression = input().split()
 numbers = deque()
-result = 0
+
+operators = {
+    "+": lambda a, b: a + b,
+    "-": lambda a, b: a - b,
+    "*": lambda a, b: a * b,
+    "/": lambda a, b: a // b
+}
 
 for element in expression:
-    if element.isdigit():
-        numbers.append(element)
+    if element not in "+-*/":
+        numbers.append(int(element))
     else:
-        first_number = numbers.popleft()
-        second_number = numbers.popleft()
-        if element == "+":
-            result = first_number + second_number
-        elif element == "-":
-            result = first_number - second_number
-        elif element == "*":
-            result = first_number * second_number
-        elif element == "/":
-            result = floor(first_number / second_number)
-        numbers.append(result)
-        numbers.rotate(1)
+        while len(numbers) > 1:
+            first_number = numbers.popleft()
+            second_number = numbers.popleft()
+            numbers.appendleft(operators[element](first_number, second_number))
 
-print()
+print(numbers[0])
