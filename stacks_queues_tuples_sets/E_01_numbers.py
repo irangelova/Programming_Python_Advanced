@@ -1,5 +1,5 @@
-first_sequence = set(int(x) for x in input().split())
-second_sequence = set(int(x) for x in input().split())
+first_sequence = set([int(x) for x in input().split()])
+second_sequence = set([int(x) for x in input().split()])
 
 for _ in range(int(input())):
     command = input()
