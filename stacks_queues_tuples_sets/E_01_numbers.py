@@ -1,8 +1,7 @@
 first_sequence = set(int(x) for x in input().split())
 second_sequence = set(int(x) for x in input().split())
-number_of_commands = int(input())
 
-for _ in range(number_of_commands):
+for _ in range(int(input())):
     command = input()
     if command.startswith("Add"):
         numbers_to_add_str = command[10:]
