@@ -7,7 +7,7 @@ Repository containing my work during the advanced course in Python from SoftUni
 ## **Table of Contents** 📑
 
 - [x] Lists as Stacks and Queues
-- [] Tuples and Sets
+- [x] Tuples and Sets
 - [] Multidimensional Lists
 - [] Functions Advanced
 - [] Error Handling
