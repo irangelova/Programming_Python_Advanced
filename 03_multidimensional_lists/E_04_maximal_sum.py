@@ -1,14 +1,11 @@
 import sys
 
 rows, columns = [int(el) for el in input().split()]
-matrix = []
-
 max_sum = -sys.maxsize
+#max_sum = -float("inf")
 max_square = []
 
-for _ in range(rows):
-    row_data = [int(el) for el in input().split()]
-    matrix.append(row_data)
+matrix = [[int(el) for el in input().split()] for _ in range(rows)]
 
 for row_index in range(len(matrix) - 2):
     for col_index in range(columns - 2):
