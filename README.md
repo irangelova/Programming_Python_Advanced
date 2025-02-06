@@ -8,8 +8,8 @@ Repository containing my work during the advanced course in Python from SoftUni
 
 - [x] Lists as Stacks and Queues
 - [x] Tuples and Sets
-- [] Multidimensional Lists
-- [] Functions Advanced
+- [x] Multidimensional Lists
+- [x] Functions Advanced
 - [] Error Handling
 - [] File Handling
 - [] Workshop
