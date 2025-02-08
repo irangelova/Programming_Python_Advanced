@@ -2,29 +2,28 @@ def list_roman_emperors(*args, **kwargs):
     successful_emperors = {}
     unsuccessful_emperors = {}
     count_emperors = len(args)
-    for rule_status in args:
-        if rule_status[1]:
-            successful_emperors[rule_status[0]] = 0
+    for name, status in args:
+        if status:
+            successful_emperors[name] = kwargs[name]
         else:
-            unsuccessful_emperors[rule_status[0]] = 0
+            unsuccessful_emperors[name] = kwargs[name]
 
-    for name, rule_length in kwargs.items():
-        if name in successful_emperors.keys():
-            successful_emperors[name] = int(rule_length)
-        else:
-            unsuccessful_emperors[name] = int(rule_length)
+    result = [f"Total number of emperors: {count_emperors}"]
 
-    successful_emperors_res = dict(sorted(successful_emperors.items(), key=lambda x: (-x[1], x[0])))
-    unsuccessful_emperors_res = dict(sorted(unsuccessful_emperors.items(), key=lambda x: (x[1], x[0])))
-    count_emperors_output = f"Total number of emperors: {count_emperors}"
-    successful_emperors_str = successful_emperors_output = unsuccessful_emperors_str = unsuccessful_emperors_output = ""
+    # count_emperors_output = f"Total number of emperors: {count_emperors}"
+    # successful_emperors_str = successful_emperors_output = unsuccessful_emperors_str = unsuccessful_emperors_output = ""
     if successful_emperors:
-        successful_emperors_str = "Successful emperors:"
-        successful_emperors_output = '\n'.join(f"****{name}: {rule_years}" for name, rule_years in successful_emperors_res.items())
+        successful_emperors_sorted = sorted(successful_emperors.items(), key=lambda x: (-x[1], x[0]))
+        result.append("Successful emperors:")
+        for name, rule_years in successful_emperors_sorted:
+            result.append(f"****{name}: {rule_years}")
     if unsuccessful_emperors:
-        unsuccessful_emperors_str = "Unsuccessful emperors:"
-        unsuccessful_emperors_output = '\n'.join(f"****{name_u}: {rule_years_u}" for name_u, rule_years_u in unsuccessful_emperors_res.items())
-    return f"{count_emperors_output}\n{successful_emperors_str}\n{successful_emperors_output}\n{unsuccessful_emperors_str}\n{unsuccessful_emperors_output}"
+        unsuccessful_emperors_sorted = sorted(unsuccessful_emperors.items(), key=lambda x: (x[1], x[0]))
+        result.append("Unsuccessful emperors:")
+        for name, rule_years in unsuccessful_emperors_sorted:
+            result.append(f"****{name}: {rule_years}")
+
+    return "\n".join(result)
 
 
 print(list_roman_emperors(("Augustus", True), ("Trajan", True), ("Claudius", True), Augustus=40, Trajan=19, Claudius=13,))

@@ -20,21 +20,24 @@ while strength and accuracy:
             strength.append(current_sum)
             accuracy.popleft()
     elif current_sum > 100:
-        last_el_strength = strength[-1] - 10
-        strength.pop()
-        strength.append(last_el_strength)
+        # last_el_strength = strength[-1] - 10
+        # strength.pop()
+        # strength.append(last_el_strength)
+        strength[-1] -= 10
         accuracy.rotate(-1)
 
 if count_goals == 3:
     print("Paul scored a hat-trick!")
-if count_goals == 0:
+elif count_goals == 0:
     print("Paul failed to score a single goal.")
-if count_goals > 3:
+elif count_goals > 3:
     print("Paul performed remarkably well!")
-if 0 < count_goals < 3:
+else:
     print("Paul failed to make a hat-trick.")
+
 if count_goals > 0:
     print(f"Goals scored: {count_goals}")
+
 if strength:
     print(f"Strength values left: {', '.join(str(el) for el in strength)}")
 if accuracy:
