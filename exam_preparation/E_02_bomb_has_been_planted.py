@@ -40,8 +40,8 @@ while True:
             else:
                 continue
             if matrix[new_row][new_col] == "T":
-                ct_killed = True
                 matrix[new_row][new_col] = "*"
+                ct_killed = True
                 break
         else:
             bomb_exploded = True
@@ -54,12 +54,11 @@ while True:
                 TIME_LEFT -= 4
                 matrix[bomb_position[0]][bomb_position[1]] = "D"
                 bomb_defused = True
-                break
             else:
-                not_enough_time = True
                 matrix[bomb_position[0]][bomb_position[1]] = "X"
                 needed_seconds = abs(TIME_LEFT - 4)
-                break
+                not_enough_time = True
+            break
     if TIME_LEFT <= 0:
         not_enough_time = True
         break
