@@ -10,8 +10,6 @@ def list_roman_emperors(*args, **kwargs):
 
     result = [f"Total number of emperors: {count_emperors}"]
 
-    # count_emperors_output = f"Total number of emperors: {count_emperors}"
-    # successful_emperors_str = successful_emperors_output = unsuccessful_emperors_str = unsuccessful_emperors_output = ""
     if successful_emperors:
         successful_emperors_sorted = sorted(successful_emperors.items(), key=lambda x: (-x[1], x[0]))
         result.append("Successful emperors:")
