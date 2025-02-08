@@ -10,7 +10,7 @@ not_enough_time = False
 
 
 for row in range(rows):
-    matrix.append(input())
+    matrix.append(list(input()))
     for col in range(columns):
         if matrix[row][col] == "C":
             ct_position = [row, col]
@@ -41,14 +41,7 @@ while True:
                 continue
             if matrix[new_row][new_col] == "T":
                 ct_killed = True
-                current_row = matrix[new_row]
-                new_string = ""
-                for index in range(0, len(matrix[new_row])):
-                    if index == new_col:
-                        new_string += "*"
-                    else:
-                        new_string += current_row[index]
-                matrix[new_row] = new_string
+                matrix[new_row][new_col] = "*"
                 break
         else:
             bomb_exploded = True
@@ -58,27 +51,13 @@ while True:
             TIME_LEFT -= 2
         else:
             if TIME_LEFT >= 4:
-                current_row = matrix[bomb_position[0]]
-                new_string = ""
-                for index in range(0, len(matrix[0])):
-                    if index == bomb_position[1]:
-                        new_string += "D"
-                    else:
-                        new_string += current_row[index]
-                matrix[bomb_position[0]] = new_string
                 TIME_LEFT -= 4
+                matrix[bomb_position[0]][bomb_position[1]] = "D"
                 bomb_defused = True
                 break
             else:
                 not_enough_time = True
-                current_row = matrix[bomb_position[0]]
-                new_string = ""
-                for index in range(0, len(matrix[0])):
-                    if index == bomb_position[1]:
-                        new_string += "X"
-                    else:
-                        new_string += current_row[index]
-                matrix[bomb_position[0]] = new_string
+                matrix[bomb_position[0]][bomb_position[1]] = "X"
                 needed_seconds = abs(TIME_LEFT - 4)
                 break
     if TIME_LEFT <= 0:
