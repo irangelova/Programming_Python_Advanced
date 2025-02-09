@@ -4,7 +4,6 @@ def plant_garden(available_garden_space, *allowed_plants, **planting_requests):
     requested_not_fully_executed = False
     for plant_type, space_required in allowed_plants:
         allowed_plants_dict[plant_type] = space_required
-    #planting_requests_sorted = dict(sorted(planting_requests.items(), key=lambda x: x[0]))
     for requested_plant, requested_quantity in sorted(planting_requests.items()):
         if requested_plant in allowed_plants_dict.keys():
             if (requested_quantity * allowed_plants_dict[requested_plant]) <= available_garden_space:
